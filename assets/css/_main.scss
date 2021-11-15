@@ -1,0 +1,72 @@
+.main {
+    &__menu {
+        padding: 20px 0 40px;
+        display: flex;
+        justify-content: space-between;
+
+        &__item {
+            width: 210px;
+            margin-right: 10px;
+
+            span {
+                padding: 15px 10px;
+                display: block;
+                background-color: #ab9eee;
+                color: #ddd8f8;
+                font-size: 15px;
+                text-align: right;
+            }
+
+            div {
+                height: 170px;
+                border: 1px solid #f6f6f6;
+                background-color: #fff;
+            }
+        }
+    }
+    &__message {
+        flex-basis: 55%;
+
+        textarea {
+            width: 90%;
+            height: 250px;
+            padding: 10px;
+        }
+    }
+
+    &__yearsubmit {
+        flex-basis: 38%;
+
+        label {
+            margin-bottom: 10px;
+            display: block;
+            color: #abb5bb;
+            font-size: 18px;
+        }
+        &__year {
+            width: 40%;
+            margin-bottom: 30px;
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+        }
+    }
+    &__submit {
+        input {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0186ef;
+            color: #cfe7fc;
+            font-size: 20px;
+        }
+    }
+    }
+}
+form {
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
