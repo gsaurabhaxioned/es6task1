@@ -10,7 +10,6 @@ let textarea1 = document.querySelector('textarea'),
  jsonerr=document.querySelector('.jsonerror'),
  yearerr=document.querySelector('.yearerror'),
  yearinput = document.querySelector(".yearbox"),
- yearval = yearinput.value,
  person =[];
 
 let manyDivs = document.querySelectorAll('.main__menu__item div');
@@ -27,6 +26,7 @@ let rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
   }
 
   yearinput.addEventListener("keyup",()=>{
+    let yearval = yearinput.value;
     console.log(yearval);
     if(yearval.length !== 4) {
       yearerr.innerText = "year is not valid";
@@ -38,9 +38,11 @@ let rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
 document.querySelector('.main__yearsubmit__submit input')
   .addEventListener('click', e => {
     e.preventDefault();
-    let newobj = textarea1.value;
-    // console.log(newobj);
+    let newobj = textarea1.value,
+    daybox = document.querySelectorAll(".main__menu__item div span");
     // console.log(daybox.length);
+    // console.log(newobj);
+    
     if(!IsValidJSONString(newobj)) {
       jsonerr.innerText="jsson data passed is not valid";
     }else {
@@ -54,14 +56,14 @@ document.querySelector('.main__yearsubmit__submit input')
       manyDivs[j].innerHTML = '';
     }
     for (let i = 0; i < person.length; i++) {
-      if (checkdata === person[i].birthday.slice(-4)) {
+      
         let charx = person[i].name.split(' ');
         console.log(charx);
         let combine = charx[0].charAt(0).concat(charx[1].charAt(0));
         let d = new Date(person[i].birthday);
         let date1 = d.getDate();
         let date2 = d.getMonth() + 1;
-        let date3 = d.getFullYear();
+        let date3 = yearinput.value;
         let con = date3 + '/' + date2 + '/' + date1;
         let dayss = new Date(con);
         let days = dayss.getDay();
@@ -166,9 +168,15 @@ document.querySelector('.main__yearsubmit__submit input')
             span7.style.backgroundColor = rndCol;
             div7.appendChild(span7);
         }
-      }
     }
+    for(var i=1; i<=7; i++) {
+      const spans = document.querySelectorAll(`.main__menu__item:nth-child(${i}) div span`);
+      let boxlength=spans.length;
+      console.log(boxlength);
+      // spans.style.width="50%";
+  }
   });
+
 
 // function makeRequest() {
 //         // let request = new XMLHttpRequest();
