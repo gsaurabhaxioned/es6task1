@@ -80,8 +80,6 @@ document.querySelector('.main__yearsubmit__submit input')
               random(255) +
               ')';
             span1.style.backgroundColor = rndCol;
-            span1.style.width="50%";
-            span1.style.height="100%";
             div1.appendChild(span1);
             break;
           case 1:
@@ -177,24 +175,3 @@ document.querySelector('.main__yearsubmit__submit input')
   }
   });
 
-
-// function makeRequest() {
-//         // let request = new XMLHttpRequest();
-//         // request.open("GET", "./assets/js/person.jason");
-//         // console.log("yagibf",request);
-//         // request.onreadystatechange =()=>{
-//             // let response=request.responseText;
-//             let rep=JSON.parse(person);
-//             // console.log("datas",rep);
-//             let j= [];
-//                 for(let i=0;i<9;i++){
-//                     j.push(rep[i]);
-//                 }
-//         // }
-//         // request.send();
-//       }
-
-//   document.querySelector(".main__yearsubmit__submit input").addEventListener('click', (e)=> {
-//     e.preventDefault();
-//     makeRequest();
-// });
