@@ -1,173 +1,53 @@
-let textarea1 = document.querySelector('textarea');
-let forminput = document.querySelector('.main__yearsubmit__year input');
-let div1 = document.querySelector('.main__menu__item__sun');
-let div2 = document.querySelector('.main__menu__item__mon');
-let div3 = document.querySelector('.main__menu__item__tue');
-let div4 = document.querySelector('.main__menu__item__wed');
-let div5 = document.querySelector('.main__menu__item__thu');
-let div6 = document.querySelector('.main__menu__item__fri');
-let div7 = document.querySelector('.main__menu__item__sat');
+let textarea1 = document.querySelector('textarea'),
+ forminput = document.querySelector('.main__yearsubmit__year input'),
+ div1 = document.querySelector('.main__menu__item__sun'),
+ div2 = document.querySelector('.main__menu__item__mon'),
+ div3 = document.querySelector('.main__menu__item__tue'),
+ div4 = document.querySelector('.main__menu__item__wed'),
+ div5 = document.querySelector('.main__menu__item__thu'),
+ div6 = document.querySelector('.main__menu__item__fri'),
+ div7 = document.querySelector('.main__menu__item__sat'),
+ jsonerr=document.querySelector('.jsonerror'),
+ yearerr=document.querySelector('.yearerror'),
+ yearinput = document.querySelector(".yearbox"),
+ yearval = yearinput.value,
+ person =[];
 
-let person =[];
-// [
-//   {
-//     name: 'Tryan Lannister',
-//     birthday: '12/02/1978',
-//   },
-//   {
-//     name: 'Cersei Lannister',
-//     birthday: '1/30/1975',
-//   },
-//   {
-//     name: 'Daeneryes Targeryan',
-//     birthday: '11/24/1991',
-//   },
-//   {
-//     name: 'Arya Stark',
-//     birthday: '11/5/1996',
-//   },
-//   {
-//     name: 'Jon Snow',
-//     birthday: '12/03/1989',
-//   },
-//   {
-//     name: 'Sansa Stark',
-//     birthday: '08/06/1992',
-//   },
-//   {
-//     name: 'Sansa Stark',
-//     birthday: '08/06/1992',
-//   },
-//   {
-//     name: 'Sansa Stark',
-//     birthday: '08/06/1992',
-//   },
-//   {
-//     name: 'Sansa Stark',
-//     birthday: '08/06/1992',
-//   },
-//   {
-//     name: 'Sansa Stark',
-//     birthday: '08/06/1992',
-//   },
-//   {
-//     name: 'Jorah Mormath',
-//     birthday: '10/12/1988',
-//   },
-//   {
-//     name: 'Ice Cube',
-//     birthday: '01/01/1980',
-//   },
-//   {
-//     name: 'Jacob Dsouza',
-//     birthday: '02/15/1995',
-//   },
-//   {
-//     name: 'Nicola Tesla',
-//     birthday: '05/08/2000',
-//   },
-//   {
-//     name: 'Bacon Comedy',
-//     birthday: '02/25/2001',
-//   },
-//   {
-//     name: 'Jason Momoa',
-//     birthday: '04/30/2014',
-//   },
-//   {
-//     name: 'Omega Shenron',
-//     birthday: '11/24/2014',
-//   },
-//   {
-//     name: 'Akon Konvict',
-//     birthday: '11/5/2014',
-//   },
-//   {
-//     name: 'Moses Gaddam',
-//     birthday: '10/03/2015',
-//   },
-//   {
-//     name: 'Savio Chauri',
-//     birthday: '08/06/2010',
-//   },
-//   {
-//     name: 'Sharuk Khan',
-//     birthday: '10/12/1989',
-//   },
-//   {
-//     name: 'Salman Khan',
-//     birthday: '05/05/1982',
-//   },
-//   {
-//     name: 'Robert Jr',
-//     birthday: '03/15/1995',
-//   },
-//   {
-//     name: 'Captian America',
-//     birthday: '06/09/2001',
-//   },
-//   {
-//     name: 'Black Widow',
-//     birthday: '11/02/2000',
-//   },
-//   {
-//     name: 'Osama Ladin',
-//     birthday: '11/26/2011',
-//   },
-//   {
-//     name: 'Obama Barak',
-//     birthday: '09/24/1991',
-//   },
-//   {
-//     name: 'Rick Martin',
-//     birthday: '07/10/1996',
-//   },
-//   {
-//     name: 'Drake Bling',
-//     birthday: '08/06/2015',
-//   },
-//   {
-//     name: 'Mayuresh Bhaskar',
-//     birthday: '08/06/1992',
-//   },
-//   {
-//     name: 'Kapil Sharma',
-//     birthday: '10/12/2006',
-//   },
-//   {
-//     name: 'Sunny Deol',
-//     birthday: '10/20/2005',
-//   },
-//   {
-//     name: 'Amit Mane',
-//     birthday: '02/15/1997',
-//   },
-//   {
-//     name: 'Deepankar Jadhav',
-//     birthday: '03/05/1997',
-//   },
-// ];
 let manyDivs = document.querySelectorAll('.main__menu__item div');
-// console.log('manyDivs', manyDivs);
-// for (let i = 0; i < person.length; i++) {
-//   let textmsg = `{
-//     name: "${person[i].name}"
-//     birthday: "${person[i].birthday}"
-// }, `;
-//   textarea1.innerHTML += textmsg;
-// }
 function random(number) {
   return Math.floor(Math.random() * (number + 1));
 }
 let rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
 
-document
-  .querySelector('.main__yearsubmit__submit input')
+    // function to validate JSON string
+    function IsValidJSONString(str) {
+      try { JSON.parse(str) }
+      catch (e) { return false }
+      return true;
+  }
+
+  yearinput.addEventListener("keyup",()=>{
+    console.log(yearval);
+    if(yearval.length !== 4) {
+      yearerr.innerText = "year is not valid";
+    }else {
+      yearerr.innerText = "";
+    }
+  })
+
+document.querySelector('.main__yearsubmit__submit input')
   .addEventListener('click', e => {
     e.preventDefault();
     let newobj = textarea1.value;
     // console.log(newobj);
-    person=JSON.parse(newobj);
+    // console.log(daybox.length);
+    if(!IsValidJSONString(newobj)) {
+      jsonerr.innerText="jsson data passed is not valid";
+    }else {
+      jsonerr.innerText="";
+      person=JSON.parse(newobj);
+    }
+
     console.log(person);
     let checkdata = forminput.value;
     for (let j = 0; j < manyDivs.length; j++) {
