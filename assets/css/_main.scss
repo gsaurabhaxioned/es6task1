@@ -18,6 +18,9 @@
             }
 
             div {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
                 height: 170px;
                 border: 1px solid #f6f6f6;
                 background-color: #fff;
