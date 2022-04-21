@@ -145,7 +145,7 @@ h1 {
   width: 210px;
   margin-right: 10px;
 }
-.main__menu__item span {
+.main__menu__item > span {
   padding: 15px 10px;
   display: block;
   background-color: #ab9eee;
@@ -157,6 +157,11 @@ h1 {
   height: 170px;
   border: 1px solid #f6f6f6;
   background-color: #fff;
+}
+
+.main__menu__item div > span {
+  display: inline-block;
+  text-align: center;
 }
 .main__message {
   flex-basis: 55%;

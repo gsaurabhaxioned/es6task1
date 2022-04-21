@@ -67,6 +67,10 @@ document.querySelector('.main__yearsubmit__submit input')
         let con = date3 + '/' + date2 + '/' + date1;
         let dayss = new Date(con);
         let days = dayss.getDay();
+        let spans="";
+        let boxlength="";
+        let boxsize="";
+
         switch (days) {
           case 0:
             let span1 = document.createElement('span');
@@ -81,6 +85,13 @@ document.querySelector('.main__yearsubmit__submit input')
               ')';
             span1.style.backgroundColor = rndCol;
             div1.appendChild(span1);
+            spans = document.querySelectorAll(`.main__menu__item:nth-child(7) div span`);
+            boxlength=spans.length,
+            boxsize = `${parseInt(100/boxlength)}%`;
+            spans.forEach(i=>{
+              i.style.width = boxsize;
+              i.style.height = boxsize;              
+            })
             break;
           case 1:
             let span2 = document.createElement('span');
@@ -95,6 +106,13 @@ document.querySelector('.main__yearsubmit__submit input')
               ')';
             span2.style.backgroundColor = rndCol;
             div2.appendChild(span2);
+             spans = document.querySelectorAll(`.main__menu__item:nth-child(1) div span`);
+             boxlength=spans.length,
+            boxsize = `${parseInt(100/boxlength)}%`;
+            spans.forEach(i=>{
+              i.style.width = boxsize;
+              i.style.height = boxsize;              
+            })
             break;
           case 2:
             let span3 = document.createElement('span');
@@ -109,6 +127,13 @@ document.querySelector('.main__yearsubmit__submit input')
               ')';
             span3.style.backgroundColor = rndCol;
             div3.appendChild(span3);
+            spans = document.querySelectorAll(`.main__menu__item:nth-child(2) div span`);
+            boxlength=spans.length,
+            boxsize = `${parseInt(100/boxlength)}%`;
+            spans.forEach(i=>{
+              i.style.width = boxsize;
+              i.style.height = boxsize;              
+            })
             break;
           case 3:
             let span4 = document.createElement('span');
@@ -123,6 +148,13 @@ document.querySelector('.main__yearsubmit__submit input')
               ')';
             span4.style.backgroundColor = rndCol;
             div4.appendChild(span4);
+            spans = document.querySelectorAll(`.main__menu__item:nth-child(3) div span`);
+            boxlength=spans.length,
+            boxsize = `${parseInt(100/boxlength)}%`;
+            spans.forEach(i=>{
+              i.style.width = boxsize;
+              i.style.height = boxsize;              
+            })
             break;
           case 4:
             let span5 = document.createElement('span');
@@ -137,6 +169,13 @@ document.querySelector('.main__yearsubmit__submit input')
               ')';
             span5.style.backgroundColor = rndCol;
             div5.appendChild(span5);
+            spans = document.querySelectorAll(`.main__menu__item:nth-child(4) div span`);
+            boxlength=spans.length,
+            boxsize = `${parseInt(100/boxlength)}%`;
+            spans.forEach(i=>{
+              i.style.width = boxsize;
+              i.style.height = boxsize;              
+            })
             break;
           case 5:
             let span6 = document.createElement('span');
@@ -151,6 +190,14 @@ document.querySelector('.main__yearsubmit__submit input')
               ')';
             span6.style.backgroundColor = rndCol;
             div6.appendChild(span6);
+            spans = document.querySelectorAll(`.main__menu__item:nth-child(5) div span`);
+            boxlength=spans.length,
+            boxsize = `${parseInt(100/boxlength)}%`;
+            spans.forEach(i=>{
+              i.style.width = boxsize;
+              i.style.height = boxsize;              
+            })
+      
             break;
           case 6:
             let span7 = document.createElement('span');
@@ -165,12 +212,19 @@ document.querySelector('.main__yearsubmit__submit input')
               ')';
             span7.style.backgroundColor = rndCol;
             div7.appendChild(span7);
+            spans = document.querySelectorAll(`.main__menu__item:nth-child(6) div span`);
+            boxlength=spans.length,
+            boxsize = `${parseInt(100/boxlength)}%`;
+            spans.forEach(i=>{
+              i.style.width = boxsize;
+              i.style.height = boxsize;              
+            })
         }
     }
     for(var i=1; i<=7; i++) {
-      const spans = document.querySelectorAll(`.main__menu__item:nth-child(${i}) div span`);
-      let boxlength=spans.length;
-      console.log(boxlength);
+      // const spans = document.querySelectorAll(`.main__menu__item:nth-child(${i}) div span`);
+      // let boxlength=spans.length;
+      // console.log(boxlength);
       // spans.style.width="50%";
   }
   });
